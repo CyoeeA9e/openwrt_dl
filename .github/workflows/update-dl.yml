@@ -43,6 +43,7 @@ jobs:
     - name: Clone source code
       run: |
         rm -rf openwrt
+        rm -rf dl
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
 
@@ -73,10 +74,12 @@ jobs:
     
     - name: Commit changes 
       run: |
+        cp -r openwrt/dl ./
+        cp openwrt/.config ./
         git config --global user.email zjnbzhzy@outlook.com
         git config --global user.name CyoeeA9e
-        rm -rf openwrt/.git
-        git add .
+        git add dl
+        git add .config
         git commit -m "Add changes"
     
     - name: Push changes
