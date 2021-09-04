@@ -1,0 +1,3 @@
+[submodule "luci-app-mentohust"]
+	path = luci-app-mentohust
+	url = https://github.com/BoringCat/luci-app-mentohust.git
